@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='myfont/css/all.min.css')}}">
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <style>
+        body {
+            /*background-image: linear-gradient(
+        30deg,
+        rgba(173, 216, 230, 0.95) 0%,
+        rgba(173, 216, 230, 0.95) 100%
+    );*/
+
+    background-image: url('static/images/aaaa.jpeg');
+    background-size: 100%;
+background-attachment: fixed;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        .shadow {
+            box-shadow: 3px 3px 10px black;
+            padding: 30px;
+            background-color: white;  /* Adjust the background color of the form if needed */
+        }
+
+        form {
+            /* Additional form styling if needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-offset-3 col-md-5">
+            <div class="shadow">
+                <form method="POST" action="/register">
+                    <h2 class="page-header text-primary text-center">Registration</h2>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input class="form-control" name="pass" type="password" required>
+                    </div>
+                  
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-block" value="Register">
+                        <a href="{{url_for('index')}}" class="btn btn-primary btn-block">Back to Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("form").attr("autocomplete","off");
+    });
+</script>

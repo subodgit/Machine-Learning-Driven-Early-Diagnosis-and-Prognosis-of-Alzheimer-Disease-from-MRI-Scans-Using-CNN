@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="it">
+  <meta name="keywords" content="AI, Emotion Detector, AI Project, Deep Learning">
+  
+  <meta name="author" content="">
+
+  <!-- <link rel="stylesheet" href="/static/plugins/fontawesome/css/all.css"> -->
+  <!-- <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/images1/ourlogo.png')}}"> -->
+ 
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="/static/plugins/fontawesome/css/all.css"> -->
+
+  <!-- Main Stylesheet -->
+         <link rel= "stylesheet" type= "text/css" href= "../static/css/data-style.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/data-style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='css/miscellaneous.css')}}">
+  
+    
+    <!-- Font Awesome icons (free version)-->
+
+    <script crossorigin="anonymous" src=
+    "https://use.fontawesome.com/releases/v6.1.0/js/all.js"></script>
+  <!-- <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/images1/ourlogo.png')}}"> -->
+  
+  <script crossorigin="anonymous" src=
+  "https://use.fontawesome.com/releases/v6.1.0/js/all.js"></script>
+  <title>Alziemer Disease</title>
+
+   <!-- Add your CSS and other head elements here -->
+   <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        /*background-image: linear-gradient(
+        30deg,
+        rgba(173, 216, 230, 0.95) 0%,
+        rgba(173, 216, 230, 0.95) 100%
+    );*/
+    background-image: url('static/images/aaaa.jpeg');
+background-attachment: fixed;
+background-size: 50%; /* Adjust as needed */
+        color: white; /* Text color */
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    #title {
+        margin-top: 1%;
+        margin-bottom: 1%;
+        text-align: center;
+    }
+
+    form {
+        text-align: left;
+        max-width: 600px; /* Adjust the maximum width as needed */
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #052049; /* Dark black background color */
+        transition: background-color 0.3s ease; /* Smooth transition effect */
+    }
+
+ 
+
+    fieldset {
+        margin-bottom: 20px;
+    }
+
+    legend {
+        color: white;
+    }
+
+    label {
+        color: white;
+    }
+
+    /* Additional styling for buttons */
+    button {
+        background-color: #cdcdcd;
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+   
+</style>
+
+
+
+</head>
+
+
+<body id="top-header" style = "">
+
+
+<!-- LOADER TEMPLATE -->
+<div id="page-loader">
+    <div class="loader-icon fa fa-spin colored-border"></div>
+</div>
+<!-- /LOADER TEMPLATE -->
+
+     <!-- NAVBAR
+    ================================================= -->
+        
+    <!-- Navigation-->
+    <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a href="{{url_for('home')}}"><strong>    Alzheimer AI
+          </strong></a>
+        </li>
+
+        <li class="sidebar-nav-item">
+          <a href="{{url_for('home')}}">Home</a>
+        </li>
+
+        
+        <li class="sidebar-nav-item">
+          <a href="miscellaneous.html">Quiz</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="data.html">Information</a>
+        </li>
+        <li class="sidebar-nav-item">
+          <a href="{{url_for('logout')}}">Logout</a>
+        </li>
+
+
+      </ul>
+    </nav>
+    <a id="home"></a>
+ <!-- HERO
+    ================================================== -->
+    <div id="container">
+      <div id="title" class="">
+          <h3 class="text-light" style="font-weight: bold; font-size: 5rem; text-shadow: 5px 5px 10px black;">
+              QUIZ
+          </h3>
+      </div>
+  
+      <form action="/submit_que" method="post">
+        {% for question in questions %}
+            <fieldset>
+                <legend>{{ question['question'] }}</legend>
+                {% for option in question['options'] %}
+                    <label>
+                        <input type="radio" name="{{ question['question'] }}" value="{{ option }}" required>
+                        {{ option }}
+                    </label><br>
+                {% endfor %}
+            </fieldset>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+    
+  </div>
+
+
+
+    <!-- Main jQuery -->
+    <script src="{{ url_for('static', filename='plugins/jquery/jquery.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/theme.js')}}"></script>
+ 
+
+   
+      <script src="js/scripts.js"></script> 
+    <script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+  </body>
+  </html>
